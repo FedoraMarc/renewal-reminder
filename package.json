@@ -1,0 +1,16 @@
+{
+  "name": "renewal-reminder",
+  "scripts": {
+    "dev": "wrangler dev src/index.tsx",
+    "deploy": "wrangler deploy --minify src/index.tsx",
+    "types": "wrangler types"
+  },
+  "dependencies": {
+    "hono": "^4.6.3",
+    "jose": "^5.9.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "wrangler": "^3.57.2"
+  }
+}
