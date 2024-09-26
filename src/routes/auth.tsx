@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { authenticate, isAuthenticated } from '../lib/auth';
 import Layout from '../components/Layout';
-import * as styles from '../styles';
+import styles from '../styles';
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -11,12 +11,11 @@ app.get('/', async (ctx) => {
   }
 
   return ctx.html(
-    <Layout class={styles.loginPageLayout} >
+    <Layout class={styles}>
+      <div>Data Passport/Visa PSG</div>
       <form hx-post="/auth" hx-swap="afterend">
-        <label for="username" > Username </label>
-        <input id="username" name="username" />
-        <label for="password" > Password </label>
-        <input id="password" name="password" type="password" />
+        <input placeholder='Username' id="username" name="username" />
+        <input placeholder='Password' id="password" name="password" type="password" />
         <button>Masuk</button>
       </form>
     </Layout >
