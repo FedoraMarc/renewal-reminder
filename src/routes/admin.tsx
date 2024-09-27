@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { deleteCookie } from "hono/cookie";
 import { isAuthenticated } from "../lib/auth";
-import Layout from "../components/Layout";
+import AdminLayout from "../components/AdminLayout";
 import styles from "../styles/dashboard";
 
 const app = new Hono<{ Bindings: Env }>();
@@ -17,7 +17,6 @@ const app = new Hono<{ Bindings: Env }>();
 // The button sends an hx-post to the server to update the entry.
 
 // TODO:
-// Abstract out the header into an AdminLayout component.
 // Create another page for Telegram / Email settings.
 
 // Email API suggestions: SendGrid
@@ -30,12 +29,8 @@ app.use(async (ctx, next) => {
 
 app.get('/', async (ctx) => {
   return ctx.html(
-    <Layout class={styles}>
-      <header>
-        <div>Data Passport dan Visa PSG</div>
-        <button hx-post="/admin/logout">Logout</button>
-      </header>
-      <button>Tambah Data</button>
+    <AdminLayout class={styles}>
+      <button onClick={() => { /* TODO */ }}>Tambah Data</button>
       <main>
         <table>
           <thead>
@@ -58,7 +53,10 @@ app.get('/', async (ctx) => {
           </tbody>
         </table>
       </main>
-    </Layout>
+      <dialog id="new-form">
+        {/* TODO */}
+      </dialog>
+    </AdminLayout>
   );
 });
 

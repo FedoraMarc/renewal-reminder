@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { authenticate, isAuthenticated } from '../lib/auth';
 import Layout from '../components/Layout';
-import styles from '../styles';
+import styles from '../styles/login';
 
 const app = new Hono<{ Bindings: Env }>();
 

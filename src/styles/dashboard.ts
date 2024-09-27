@@ -1,32 +1,6 @@
 import { css } from 'hono/css';
 
 export default css`
-  header {
-    background-color: #000000;
-    display: flex;
-    justify-content: space-between;
-    padding: 1em calc(50vw - 38em);
-    margin-bottom: 2em;
-
-    > div:first-child {
-      color: #ffffff;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    > button {
-      background: none;
-      border: none;
-      color: #ffffff;
-      font-size: 1rem;
-      cursor: pointer;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
   > button {
     background-color: #1098f7;
     border: none;

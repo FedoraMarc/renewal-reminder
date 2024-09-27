@@ -1,6 +1,5 @@
-import { Style, cx } from "hono/css";
+import { Style, cx, css } from "hono/css";
 import { PropsWithChildren } from "hono/jsx";
-import styles from "../styles";
 
 const TITLE = "Data Passport/Visa PSG";
 
@@ -31,3 +30,13 @@ export default function(props: PropsWithChildren<LayoutProps>) {
     </html>
   );
 }
+
+const styles = css`
+  background-color: #efefef;
+  margin: 0;
+
+  * {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+`;
