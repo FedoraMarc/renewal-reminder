@@ -18,7 +18,6 @@ const app = new Hono<{ Bindings: Env }>();
 
 // TODO:
 // Create another page for Telegram / Email settings.
-
 // Email API suggestions: SendGrid
 
 app.use(async (ctx, next) => {
@@ -30,7 +29,7 @@ app.use(async (ctx, next) => {
 app.get('/', async (ctx) => {
   return ctx.html(
     <AdminLayout class={styles}>
-      <button onClick={() => { /* TODO */ }}>Tambah Data</button>
+      <button id="modal-button">Tambah Data</button>
       <main>
         <table>
           <thead>
@@ -53,9 +52,24 @@ app.get('/', async (ctx) => {
           </tbody>
         </table>
       </main>
-      <dialog id="new-form">
-        {/* TODO */}
+      <dialog id="form-modal">
+        <form method='dialog'>
+          <input placeholder="Nama Staff" id="name" />
+          <div>Data Passport</div>
+          <input placeholder="Terakhir Diperpanjang" id="passport-last" type="date" />
+          <input placeholder="Masa Valid" id="passport-lifetime" type="number" />
+          <div>Data Visa</div>
+          <input placeholder="Terakhir Diperpanjang" id="visa-last" type="date" />
+          <input placeholder="Masa Valid" id="visa-lifetime" type="number" />
+          <button>Selesai</button>
+        </form>
       </dialog>
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          const modal = document.querySelector("form-modal");
+          const modalButton = document.querySelector("modal-button");
+          modalButton.onclick = modal.showModal;
+        `}} />
     </AdminLayout>
   );
 });
