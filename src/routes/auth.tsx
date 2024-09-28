@@ -14,8 +14,8 @@ app.get('/', async (ctx) => {
     <Layout class={styles}>
       <div>Data Passport/Visa PSG</div>
       <form hx-post="/auth" hx-swap="afterend">
-        <input placeholder='Username' id="username" name="username" />
-        <input placeholder='Password' id="password" name="password" type="password" />
+        <input placeholder='Username' id="username" />
+        <input placeholder='Password' id="password" type="password" />
         <button>Masuk</button>
       </form>
     </Layout >
